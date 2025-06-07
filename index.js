@@ -2,20 +2,22 @@ let rx = document.getElementById("rx");
 let tx = document.getElementById("tx");
 let connectBtn = document.getElementById("connectBtn");
 
+let s = navigator.serial;
+
 if (!("serial" in navigator)) {
-  alert("Serial not supported, use chrome or edge maybe");
+  s = serial;
 }
 
 let port;
 let canceled = false;
 
-navigator.serial.addEventListener("connect", (e) => {
+s.onconnect =  (e) => {
   port = e.target;
-});
+};
 
 connectBtn.addEventListener("click", async () => {
   try {
-    const p = await navigator.serial.requestPort();
+    const p = await s.requestPort();
     await p.open({ baudRate: 9600 });
     console.log("Serial port opened:", p);
 
