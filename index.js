@@ -16,23 +16,19 @@ s.onconnect =  (e) => {
 };
 
 connectBtn.addEventListener("click", async () => {
-  try {
-    const p = await s.requestPort();
-    await p.open({ baudRate: 9600 });
-    console.log("Serial port opened:", p);
+  const p = await s.requestPort();
+  await p.open({ baudRate: 9600 });
+  console.log("Serial port opened:", p);
 
-    port = p;
+  port = p;
 
-    canceled = false;
-    tryRead();
+  canceled = false;
+  tryRead();
 
-    p.ondisconnect = () => {
-      port = undefined;
-      canceled = true;
-    };
-  } catch (err) {
-    alert("Error opening serial port:", err);
-  }
+  p.ondisconnect = () => {
+    port = undefined;
+    canceled = true;
+  };
 });
 
 tx.addEventListener("change", async () => {
