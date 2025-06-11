@@ -235,10 +235,9 @@ class UsbEndpointUnderlyingSource {
                 if ((_a = result.data) === null || _a === void 0 ? void 0 : _a.buffer) {
 
                     const chunk = new Uint8Array(result.data.buffer, result.data.byteOffset, result.data.byteLength);
-
-                    console.log(result.data, chunk);
-                    
-                    controller.enqueue(chunk);
+                    if (chunk.length > 0) {
+                        controller.enqueue(chunk);
+                    }
 
                 }
 
