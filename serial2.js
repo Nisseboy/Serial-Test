@@ -32,7 +32,7 @@ ser = {
 
 
 
-if (true || !("serial" in navigator)) {
+if (!("serial" in navigator)) {
   ser.serial = serial;
   
 }
@@ -62,7 +62,7 @@ async function tryRead() {
       
     } finally {
       reader.releaseLock();
-      ser.port.reader.releaseLock();
+      //ser.port.reader.releaseLock();
     }
   }
 }
