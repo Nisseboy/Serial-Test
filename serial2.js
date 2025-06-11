@@ -32,7 +32,7 @@ ser = {
 
 
 
-if (!("serial" in navigator)) {
+if (true || !("serial" in navigator)) {
   ser.serial = serial;
   
 }
