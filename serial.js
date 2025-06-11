@@ -236,6 +236,8 @@ class UsbEndpointUnderlyingSource {
 
                     const chunk = new Uint8Array(result.data.buffer, result.data.byteOffset, result.data.byteLength);
 
+                    console.log(result.data, chunk);
+                    
                     controller.enqueue(chunk);
 
                 }
