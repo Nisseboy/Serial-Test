@@ -1,15 +1,10 @@
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(31250);
 }
 
 bool sending = false;
 void loop() {
   if (Serial.available()) {
-    char a = Serial.read();
-    if (a == 'w') sending = !sending;
-  }
-
-  if (sending) {
-    Serial.write("asdf");
+    Serial.write(Serial.read());
   }
 }

@@ -62,7 +62,6 @@ async function tryRead() {
       
     } finally {
       reader.releaseLock();
-      //ser.port.reader.releaseLock();
     }
   }
 }
