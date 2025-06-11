@@ -55,9 +55,7 @@ async function tryRead() {
           console.log("Reader cancelled");
           
           break;
-        }
-        console.log(123);
-        
+        }  
         ser.on(value);
       }
     } catch (error) {
