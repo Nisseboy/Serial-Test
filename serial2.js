@@ -44,9 +44,10 @@ ser.serial.onconnect =  (e) => {
 
 async function tryRead() {
   while (ser.port?.readable) {
-    const textDecoder = new TextDecoderStream();
-    const readableStreamClosed = ser.port.readable.pipeTo(textDecoder.writable);
-    const reader = textDecoder.readable.getReader();
+    //const textDecoder = new TextDecoderStream();
+    //const readableStreamClosed = ser.port.readable.pipeTo(textDecoder.writable);
+    //const reader = textDecoder.readable.getReader();
+    let reader = ser.port.readable.getReader();
 
     try {
       while (true) {
